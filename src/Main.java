@@ -1,11 +1,11 @@
+import main.Main_GUI;
 
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
-		System.out.println("");
-
+		new Main_GUI();
+		
 	}
 
 }
