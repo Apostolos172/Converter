@@ -4,6 +4,9 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import listeners.ConvertOneValueToOther;
+import listeners.ConvertkmPerHourbtnListener;
+import listeners.VisitInfobtnListener;
 import main.*;
 
 public class Mach extends JFrame{
@@ -76,7 +79,7 @@ public class Mach extends JFrame{
 		visitf16Infobtn = new JButton("Πληροφορίες F16");
 		visitf16Infobtn.setFont(GUI.getFont("sansSerifFontBig"));
 		visitf16Infobtn.setBackground(Color.orange);
-		visitf16InfobtnListener visitf16Infobtnlistener  = new visitf16InfobtnListener ();
+		VisitInfobtnListener visitf16Infobtnlistener  = new VisitInfobtnListener ("https://el.wikipedia.org/wiki/F-16_Fighting_Falcon");
 		visitf16Infobtn.addActionListener(visitf16Infobtnlistener);
 		
 		westPanel.add(imageLabel);
@@ -101,10 +104,11 @@ public class Mach extends JFrame{
 		
 		convertmachbtn = new JButton("Μετέτρεψε");
 		convertmachbtn.setFont(GUI.getFont("sansSerifFontMedium"));
-		convertmachbtnListener convertmachbtnlistener = new convertmachbtnListener();
+		resultHavingMachtxt = new JTextField(10);
+		//convertmachbtnListener convertmachbtnlistener = new convertmachbtnListener();
+		ConvertOneValueToOther convertmachbtnlistener = new ConvertOneValueToOther(machtxt, resultHavingMachtxt, "machTokmPerHour"); 
 		convertmachbtn.addActionListener(convertmachbtnlistener);
 		
-		resultHavingMachtxt = new JTextField(10);
 		GUI.setLeftPaddingAtJTextField(resultHavingMachtxt);
 		resultHavingMachtxt.setFont(GUI.getFont("sansSerifFontMedium"));
 		
@@ -117,16 +121,17 @@ public class Mach extends JFrame{
 		
 		convertkmPerHourbtn = new JButton("Μετέτρεψε");
 		convertkmPerHourbtn.setFont(GUI.getFont("sansSerifFontMedium"));
-		convertkmPerHourbtnListener convertkmPerHourbtnlistener = new convertkmPerHourbtnListener();
+		resultHavingkmPerHourtxt = new JTextField(10);
+		ConvertkmPerHourbtnListener convertkmPerHourbtnlistener = new ConvertkmPerHourbtnListener(kmPerHourtxt,resultHavingkmPerHourtxt);
 		convertkmPerHourbtn.addActionListener(convertkmPerHourbtnlistener);
 		
-		resultHavingkmPerHourtxt = new JTextField(10);
+		
 		GUI.setLeftPaddingAtJTextField(resultHavingkmPerHourtxt);
 		resultHavingkmPerHourtxt.setFont(GUI.getFont("sansSerifFontMedium"));
 		
 		visitInfobtn = new JButton("Πληροφορίες");
 		visitInfobtn.setFont(GUI.getFont("sansSerifFontMedium"));
-		visitInfobtnListener visitInfobtnlistener = new visitInfobtnListener();
+		VisitInfobtnListener visitInfobtnlistener = new VisitInfobtnListener("https://el.wikipedia.org/wiki/%CE%91%CF%81%CE%B9%CE%B8%CE%BC%CF%8C%CF%82_%CE%9C%CE%B1%CF%87");
 		visitInfobtn.addActionListener(visitInfobtnlistener);
 		
 		centralPanel.add(giveMachlabel);
@@ -176,7 +181,7 @@ public class Mach extends JFrame{
         
         mainPanel.add(southPanel,BorderLayout.SOUTH);
 	}
-	
+	/*
 	class visitf16InfobtnListener implements ActionListener
 	{
 
@@ -187,7 +192,8 @@ public class Mach extends JFrame{
 		}
 		
 	}
-	
+	*/
+	/*
 	class convertmachbtnListener implements ActionListener
 	{
 		@Override
@@ -196,7 +202,8 @@ public class Mach extends JFrame{
 			resultHavingMachtxt.setText("" + Math_of_conversion.machTokmPerHour(mach));
 		}
 	}
-	
+	*/
+	/*
 	class convertkmPerHourbtnListener implements ActionListener
 	{
 
@@ -207,12 +214,14 @@ public class Mach extends JFrame{
 		}
 		
 	}
-	
+	*/
+	/*
 	class visitInfobtnListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e) {
 			new Visit("https://el.wikipedia.org/wiki/%CE%91%CF%81%CE%B9%CE%B8%CE%BC%CF%8C%CF%82_%CE%9C%CE%B1%CF%87");
 		}
 	}
+	*/
 	
 }
