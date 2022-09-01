@@ -21,7 +21,7 @@ public class Main_GUI extends JFrame{
 	
 	public Main_GUI()
 	{
-		super("����������� ������� ��������");
+		super("Μετατροπέας μονάδων μέτρησης");
 		makeFrame();
 	}
 	
