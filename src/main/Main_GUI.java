@@ -21,7 +21,7 @@ public class Main_GUI extends JFrame{
 	
 	public Main_GUI()
 	{
-		super("Μετατροπέας μονάδων μετρήσης");
+		super("οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½ οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½ οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½");
 		makeFrame();
 	}
 	
@@ -204,7 +204,7 @@ public class Main_GUI extends JFrame{
 	class b5Listener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e) {
-				
+			new Mass();
 		}
 	}
 	
