@@ -45,7 +45,7 @@ public class Row extends JPanel {
 		
 		this.btn = new JButton("Convert");
 		this.btn.addActionListener(new ConvertbtnListener(fromField, toField, convertionSign));
-		//this.btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		this.btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		this.add(fromField);
 		this.add(fromMeasurement);
