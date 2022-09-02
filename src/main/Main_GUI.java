@@ -121,6 +121,7 @@ public class Main_GUI extends JFrame{
 	    b4.addActionListener(b4listener);
 	    b5Listener b5listener = new b5Listener();
 	    b5.addActionListener(b5listener);
+	    b5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    b6Listener b6listener = new b6Listener();
 	    b6.addActionListener(b6listener);
 	    b7Listener b7listener = new b7Listener();
