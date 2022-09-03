@@ -24,7 +24,7 @@ public class Mach extends JFrame{
 	
 	public Mach()
 	{
-		super("Μετατροπέας αριθμού Μαχ");
+		super("ΞΞµΟ„Ξ±Ο„ΟΞΏΟ€Ξ­Ξ±Ο‚ Ξ±ΟΞΉΞΈΞΌΞΏΟ ΞΞ±Ο‡");
 		makeFrame();
 	}
 	
@@ -55,7 +55,7 @@ public class Mach extends JFrame{
 		northPanel.setBackground(Color.yellow);
 		GUI.setPadding(northPanel);
 		
-		headerLabel = new JLabel("Μετατροπή ταχύτητας από Μαχ σε km/ώρα και αντίστροφα");
+		headerLabel = new JLabel("ΞΞµΟ„Ξ±Ο„ΟΞΏΟ€Ξ® Ο„Ξ±Ο‡ΟΟ„Ξ·Ο„Ξ±Ο‚ Ξ±Ο€Ο ΞΞ±Ο‡ ΟƒΞµ km/ΟΟΞ± ΞΊΞ±ΞΉ Ξ±Ξ½Ο„Ξ―ΟƒΟ„ΟΞΏΟ†Ξ±");
 		headerLabel.setFont(GUI.getFont("serifFontBig"));
 		GUI.setPaddingAtJLabel(headerLabel);
 		
@@ -73,7 +73,7 @@ public class Mach extends JFrame{
 		image = new ImageIcon("images/converters/mach/airplane.png");
         imageLabel = new JLabel(image);
         
-		visitf16Infobtn = new JButton("Πληροφορίες F16");
+		visitf16Infobtn = new JButton("Ξ Ξ»Ξ·ΟΞΏΟ†ΞΏΟΞ―ΞµΟ‚ F16");
 		visitf16Infobtn.setFont(GUI.getFont("sansSerifFontBig"));
 		visitf16Infobtn.setBackground(Color.orange);
 		visitf16InfobtnListener visitf16Infobtnlistener  = new visitf16InfobtnListener ();
@@ -92,14 +92,14 @@ public class Mach extends JFrame{
 	{
 		centralPanel = new JPanel(new GridLayout(3,4,10,10));
 		
-		giveMachlabel = new JLabel("Δώσε Μαχ αριθμό");
+		giveMachlabel = new JLabel("Ξ”ΟΟƒΞµ ΞΞ±Ο‡ Ξ±ΟΞΉΞΈΞΌΟ");
 		giveMachlabel.setFont(GUI.getFont("sansSerifFontMedium"));
 		
 		machtxt = new JTextField(5);
 		GUI.setLeftPaddingAtJTextField(machtxt);
 		machtxt.setFont(GUI.getFont("sansSerifFontMedium"));
 		
-		convertmachbtn = new JButton("Μετέτρεψε");
+		convertmachbtn = new JButton("ΞΞµΟ„Ξ­Ο„ΟΞµΟΞµ");
 		convertmachbtn.setFont(GUI.getFont("sansSerifFontMedium"));
 		convertmachbtnListener convertmachbtnlistener = new convertmachbtnListener();
 		convertmachbtn.addActionListener(convertmachbtnlistener);
@@ -108,14 +108,14 @@ public class Mach extends JFrame{
 		GUI.setLeftPaddingAtJTextField(resultHavingMachtxt);
 		resultHavingMachtxt.setFont(GUI.getFont("sansSerifFontMedium"));
 		
-		giveKmPerHour = new JLabel("Δώσε km ανά ώρα");
+		giveKmPerHour = new JLabel("Ξ”ΟΟƒΞµ km Ξ±Ξ½Ξ¬ ΟΟΞ±");
 		giveKmPerHour.setFont(GUI.getFont("sansSerifFontMedium"));
 		
 		kmPerHourtxt = new JTextField(5);
 		GUI.setLeftPaddingAtJTextField(kmPerHourtxt);
 		kmPerHourtxt.setFont(GUI.getFont("sansSerifFontMedium"));
 		
-		convertkmPerHourbtn = new JButton("Μετέτρεψε");
+		convertkmPerHourbtn = new JButton("ΞΞµΟ„Ξ­Ο„ΟΞµΟΞµ");
 		convertkmPerHourbtn.setFont(GUI.getFont("sansSerifFontMedium"));
 		convertkmPerHourbtnListener convertkmPerHourbtnlistener = new convertkmPerHourbtnListener();
 		convertkmPerHourbtn.addActionListener(convertkmPerHourbtnlistener);
@@ -124,7 +124,7 @@ public class Mach extends JFrame{
 		GUI.setLeftPaddingAtJTextField(resultHavingkmPerHourtxt);
 		resultHavingkmPerHourtxt.setFont(GUI.getFont("sansSerifFontMedium"));
 		
-		visitInfobtn = new JButton("Πληροφορίες");
+		visitInfobtn = new JButton("Ξ Ξ»Ξ·ΟΞΏΟ†ΞΏΟΞ―ΞµΟ‚");
 		visitInfobtn.setFont(GUI.getFont("sansSerifFontMedium"));
 		visitInfobtnListener visitInfobtnlistener = new visitInfobtnListener();
 		visitInfobtn.addActionListener(visitInfobtnlistener);
@@ -211,7 +211,7 @@ public class Mach extends JFrame{
 	class visitInfobtnListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e) {
-			new Visit("https://el.wikipedia.org/wiki/%CE%91%CF%81%CE%B9%CE%B8%CE%BC%CF%8C%CF%82_%CE%9C%CE%B1%CF%87");
+			new Visit("https://el.wikipedia.org/wiki/Ξ‘ΟΞΉΞΈΞΌΟΟ‚_ΞΞ±Ο‡");
 		}
 	}
 	
