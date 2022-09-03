@@ -5,6 +5,8 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.LayoutManager;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -27,31 +29,46 @@ public class Row extends JPanel {
 		this.fromMeasurement = new JLabel();
 		this.toMeasurement = new JLabel();
 		if(convertionSign.contains("_To_")) {
-			this.fromMeasurement.setText((convertionSign.split("_To_"))[0]);
-			// System.out.println(convertionSign.split("_To_")[0]);
-			this.toMeasurement.setText((convertionSign.split("_To_"))[1]);
-			//System.out.println(convertionSign.split("_To_")[1]);	
+			this.fromMeasurement.setText(getFromWhichUnitOfMeasurementWeConvert(convertionSign));
+			this.toMeasurement.setText(getToWhichUnitOfMeasurementWeConvert(convertionSign));	
 		}
-		for (int i = 0; i < convertionSign.split("_To_").length; i++) {
-			System.out.println(convertionSign.split("_To_")[i]);
-			System.out.println(i);
-		}
-		System.out.println("\n");
+		testing(convertionSign);
 
 		this.fromField = new JTextField(20);
 		//this.fromField.setMinimumSize(new Dimension(50, 250));
 		this.toField = new JTextField(20);
 		this.fromField.addFocusListener(new FocusFieldListener(this.toField));
 		
-		this.btn = new JButton("Convert");
-		this.btn.addActionListener(new ConvertbtnListener(fromField, toField, convertionSign));
-		this.btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		makeTheButton(convertionSign);
 		
 		this.add(fromField);
 		this.add(fromMeasurement);
 		this.add(btn);
 		this.add(toField);
 		this.add(toMeasurement);
+	}
+
+	private void makeTheButton(String convertionSign) {
+		this.btn = new Button(convertionSign, this.fromField, this.toField);
+
+	}
+
+	private void testing(String convertionSign) {
+		for (int i = 0; i < convertionSign.split("_To_").length; i++) {
+			System.out.println(convertionSign.split("_To_")[i]);
+			System.out.println(i);
+		}
+		System.out.println("\n");
+	}
+
+	private String getToWhichUnitOfMeasurementWeConvert(String convertionSign) {
+		//System.out.println(convertionSign.split("_To_")[1]);
+		return (convertionSign.split("_To_"))[1];
+	}
+
+	private String getFromWhichUnitOfMeasurementWeConvert(String convertionSign) {
+		// System.out.println(convertionSign.split("_To_")[0]);
+		return (convertionSign.split("_To_"))[0];
 	}
 
 	private void customizeRow() {
