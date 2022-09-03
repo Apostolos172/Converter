@@ -119,6 +119,7 @@ public class Main_GUI extends JFrame{
 	    b3.addActionListener(b3listener);
 	    b4Listener b4listener = new b4Listener();
 	    b4.addActionListener(b4listener);
+	    b4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	    b5Listener b5listener = new b5Listener();
 	    b5.addActionListener(b5listener);
 	    b5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -198,7 +199,7 @@ public class Main_GUI extends JFrame{
 	class b4Listener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e) {
-				
+			new Volume();
 		}
 	}
 	

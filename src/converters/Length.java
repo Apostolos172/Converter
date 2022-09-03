@@ -77,7 +77,7 @@ public class Length extends JFrame{
 	
 	public Length()
 	{
-		super("Μετατροπέας μονάδων μέτρησης μήκους");
+		super("ΞΞµΟ„Ξ±Ο„ΟΞΏΟ€Ξ­Ξ±Ο‚ ΞΌΞΏΞ½Ξ¬Ξ΄Ο‰Ξ½ ΞΌΞ­Ο„ΟΞ·ΟƒΞ·Ο‚ ΞΌΞ®ΞΊΞΏΟ…Ο‚");
 		makeFrame();
 	}
 	
@@ -107,7 +107,7 @@ public class Length extends JFrame{
 		northPanel.setBackground(Color.yellow);
 		GUI.setPadding(northPanel);
 		
-		headerLabel = new JLabel("Μετατροπή μονάδων μέτρησης μήκους");
+		headerLabel = new JLabel("ΞΞµΟ„Ξ±Ο„ΟΞΏΟ€Ξ­Ξ±Ο‚ ΞΌΞΏΞ½Ξ¬Ξ΄Ο‰Ξ½ ΞΌΞ­Ο„ΟΞ·ΟƒΞ·Ο‚ ΞΌΞ®ΞΊΞΏΟ…Ο‚");
 		headerLabel.setFont(GUI.getFont("serifFontBig"));
 		GUI.setPaddingAtJLabel(headerLabel);
 		
