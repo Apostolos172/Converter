@@ -5,6 +5,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 
+import unitsOfMeasurement.CubicCentiMeter;
+import unitsOfMeasurement.CubicDeciMeter;
+import unitsOfMeasurement.CubicMeter;
+import unitsOfMeasurement.CubicMilliMeter;
 import unitsOfMeasurement.Gram;
 import unitsOfMeasurement.Kilo;
 import unitsOfMeasurement.Mg;
@@ -27,6 +31,8 @@ public class ConvertbtnListener implements ActionListener {
 		double measurementToConvert = Double.parseDouble(this.fromField.getText());
 		String toFieldText = "";
 		switch(this.convertionSign) {
+		
+			// mass screen
 			case "kilos_To_Tonne":
 				toFieldText = Double.toString(Kilo.toTonne(measurementToConvert));
 				break;
@@ -63,6 +69,45 @@ public class ConvertbtnListener implements ActionListener {
 			case "tonne_To_Mg":
 				toFieldText = Double.toString(Tonne.toMg(measurementToConvert));
 				break;
+				
+			// volume screen
+			case "cubicMeters_To_cubicDeciMeters":
+				toFieldText = Double.toString(CubicMeter.toCubicDeciMeter(measurementToConvert));
+				break;
+			case "cubicMeters_To_cubicCentiMeters":
+				toFieldText = Double.toString(CubicMeter.toCubicCentiMeter(measurementToConvert));
+				break;
+			case "cubicMeters_To_cubicMilliMeters":
+				toFieldText = Double.toString(CubicMeter.toCubicCentiMeter(measurementToConvert));
+				break;
+			case "cubicDeciMeters_To_cubicMeters":
+				toFieldText = Double.toString(CubicDeciMeter.toCubicMeter(measurementToConvert));
+				break;
+			case "cubicDeciMeters_To_cubicCentiMeters":
+				toFieldText = Double.toString(CubicDeciMeter.toCubicCentiMeter(measurementToConvert));
+				break;
+			case "cubicDeciMeters_To_cubicMilliMeters":
+				toFieldText = Double.toString(CubicDeciMeter.toCubicMilliMeter(measurementToConvert));
+				break;
+			case "cubicCentiMeters_To_cubicMeters":
+				toFieldText = Double.toString(CubicCentiMeter.toCubicMeter(measurementToConvert));
+				break;
+			case "cubicCentiMeters_To_cubicDeciMeters":
+				toFieldText = Double.toString(CubicCentiMeter.toCubicDeciMeter(measurementToConvert));
+				break;
+			case "cubicCentiMeters_To_cubicMilliMeters":
+				toFieldText = Double.toString(CubicCentiMeter.toCubicMilliMeter(measurementToConvert));
+				break;
+			case "cubicMilliMeters_To_cubicMeters":
+				toFieldText = Double.toString(CubicMilliMeter.toCubicMeter(measurementToConvert));
+				break;
+			case "cubicMilliMeters_To_cubicDeciMeters":
+				toFieldText = Double.toString(CubicMilliMeter.toCubicDeciMeter(measurementToConvert));
+				break;
+			case "cubicMilliMeters_To_cubicCentiMeters":
+				toFieldText = Double.toString(CubicMilliMeter.toCubicCentiMeter(measurementToConvert));
+				break;
+				
 			default:
 				toFieldText = this.fromField.getText();
 		}
