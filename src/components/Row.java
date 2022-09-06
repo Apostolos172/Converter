@@ -34,9 +34,9 @@ public class Row extends JPanel {
 		}
 		testing(convertionSign);
 
-		this.fromField = new JTextField(20);
+		this.fromField = new JTextField(10);
 		//this.fromField.setMinimumSize(new Dimension(50, 250));
-		this.toField = new JTextField(20);
+		this.toField = new JTextField(10);
 		this.fromField.addFocusListener(new FocusFieldListener(this.toField));
 		
 		makeTheButton(convertionSign);
