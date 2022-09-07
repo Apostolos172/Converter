@@ -68,6 +68,11 @@ public class GUI {
 		panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); 
 	}
 	
+	public static void setTopPadding(JPanel panel)
+	{
+		panel.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0)); 
+	}
+	
 	public static void setPaddingAtJTextField(JTextField txtfield)
 	{
 		txtfield.setBorder(BorderFactory.createCompoundBorder(
