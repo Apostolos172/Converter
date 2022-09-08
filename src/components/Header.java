@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.LayoutManager;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -13,23 +14,51 @@ import main.GUI;
 public class Header extends JPanel {
 
 	private JLabel headerLabel;
-
+	
 	public Header(String title) {
-		// TODO Auto-generated constructor stub
-		
-		createHeader(title);
+		routingConstruction(title, "text");
 	}
 
-	private void createHeader(String title) {
+	public Header(String title, String identifier) {
+		// TODO Auto-generated constructor stub
+		routingConstruction(title, identifier);
+	}
+	
+
+	private void routingConstruction(String title, String identifier) {
+		// TODO Auto-generated method stub
+		switch(identifier) {
+		  case "text":
+			  createHeader(title);
+			  break;
+		  case "image":
+			  createHeaderWithImage(title);
+			  break;
+		  default:
+			  createHeader("");
+		}
+	}
+
+	private void createHeader(String titleText) {
 		
 		this.setBackground(Color.yellow);
 		GUI.setPadding(this);
 		
-		headerLabel = new JLabel(title);
+		headerLabel = new JLabel(titleText);
 		headerLabel.setFont(GUI.getFont("serifFontBig"));
 		GUI.setPaddingAtJLabel(headerLabel);
 		
 		this.add(headerLabel);
+	}
+	
+	public void createHeaderWithImage(String imageUri) {
+		GUI.setPadding(this);
+		
+		ImageIcon image = new ImageIcon(imageUri);
+        JLabel imageLabel = new JLabel(image);
+        this.add(imageLabel);
+        
+        this.setBackground(Color.white);
 	}
 
 	public Header(LayoutManager layout) {
