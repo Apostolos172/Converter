@@ -14,6 +14,8 @@ import javax.swing.JTextField;
 
 import actions.ConvertbtnListener;
 import actions.FocusFieldListener;
+import actions.KeyListenerTextField;
+import main.GUI;
 
 @SuppressWarnings("serial")
 public class Row extends JPanel {
@@ -23,7 +25,7 @@ public class Row extends JPanel {
 	private JButton btn;
 
 	public Row(String convertionSign) {
-		// TODO Auto-generated constructor stub
+		// TODO Auto-generated constructor stub		
 		customizeRow();
 		
 		this.fromMeasurement = new JLabel();
@@ -32,7 +34,7 @@ public class Row extends JPanel {
 			this.fromMeasurement.setText(getFromWhichUnitOfMeasurementWeConvert(convertionSign));
 			this.toMeasurement.setText(getToWhichUnitOfMeasurementWeConvert(convertionSign));	
 		}
-		testing(convertionSign);
+		// testing(convertionSign);
 
 		this.fromField = new JTextField(10);
 		//this.fromField.setMinimumSize(new Dimension(50, 250));
@@ -40,12 +42,19 @@ public class Row extends JPanel {
 		this.fromField.addFocusListener(new FocusFieldListener(this.toField));
 		
 		makeTheButton(convertionSign);
+		addKeyListener(convertionSign);
 		
 		this.add(fromField);
 		this.add(fromMeasurement);
 		this.add(btn);
 		this.add(toField);
 		this.add(toMeasurement);
+	}
+
+	private void addKeyListener(String convertionSign) {
+		// this.setFocusable(true);
+		this.fromField.addKeyListener(new KeyListenerTextField(fromField, toField, convertionSign));
+		// System.out.println("this.fromField is focusable => " + this.fromField.isFocusable());
 	}
 
 	private void makeTheButton(String convertionSign) {
@@ -74,6 +83,7 @@ public class Row extends JPanel {
 	private void customizeRow() {
 		// TODO Auto-generated method stub
 		this.setBackground(Color.LIGHT_GRAY);
+		GUI.setTopPadding(this);
 	}
 
 	public Row(LayoutManager layout) {
