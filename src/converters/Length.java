@@ -2,8 +2,13 @@ package converters;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
 
+import components.Card;
+import components.Footer;
+import components.Header;
 import main.*;
 
 public class Length extends JFrame{
@@ -73,8 +78,6 @@ public class Length extends JFrame{
 	private JTextField mforcm;
 	private JTextField mformm;
 	
-	
-	
 	public Length()
 	{
 		super("Μετατροπέας μονάδων μέτρησης μήκους");
@@ -103,415 +106,70 @@ public class Length extends JFrame{
 	
 	public void makeNorthPanel()
 	{
-		northPanel = new JPanel();
-		northPanel.setBackground(Color.yellow);
-		GUI.setPadding(northPanel);
-		
-		headerLabel = new JLabel("Μετατροπέας μονάδων μέτρησης μήκους");
-		headerLabel.setFont(GUI.getFont("serifFontBig"));
-		GUI.setPaddingAtJLabel(headerLabel);
-		
-		northPanel.add(headerLabel);
-		
+		northPanel = new Header("Μετατροπέας μονάδων μέτρησης μήκους");
 		mainPanel.add(northPanel,BorderLayout.NORTH);
 	}
 	
 	public void makeCentralPanel()
 	{
-		centralPanel = new JPanel(new GridLayout(3,3,10,10));
+		//centralPanel = new JPanel(new GridLayout(3,3,10,10));
+
+		centralPanel = new JPanel(new GridLayout(2,1,10,10));
+		GUI.setPadding(centralPanel);
+		JPanel firstRowOfCards = new JPanel(new GridLayout(1,3));
+		GUI.setPadding(firstRowOfCards);		
+		String[] ids1 = {"Meters_To_kiloMeters", "Meters_To_DeciMeters", "Meters_To_CentiMeters", "Meters_To_MilliMeters"};
+		JPanel CardPanel1 = new Card(createAndGetArrayListOfIdentifiersStrings(ids1));
+		String[] ids2 = {"KiloMeters_To_Meters", "KiloMeters_To_DeciMeters", "KiloMeters_To_CentiMeters", "KiloMeters_To_MilliMeters"};
+		JPanel CardPanel2 = new Card(this.createAndGetArrayListOfIdentifiersStrings(ids2));
+		String[] ids3 = {"DeciMeters_To_Meters", "DeciMeters_To_KiloMeters", "DeciMeters_To_CentiMeters", "DeciMeters_To_MilliMeters"};
+		JPanel CardPanel3 = new Card(this.createAndGetArrayListOfIdentifiersStrings(ids3));
+		firstRowOfCards.add(CardPanel1);
+		firstRowOfCards.add(CardPanel2);
+		firstRowOfCards.add(CardPanel3);
+		centralPanel.add(firstRowOfCards);
 		
-		convertbtnListener convertbtnListener = new convertbtnListener();
-		
-		kmtoother = new JPanel(new GridLayout(4,5,3,3));
-		
-		kmtom = this.createkmtomConvertionRow();
-		kmtodm = this.createkmtodmConvertionRow();
-		kmtocm = this.createkmtocmConvertionRow();
-		kmtomm = this.createkmtommConvertionRow();
-		
-		kmtom.addActionListener(convertbtnListener);
-		kmtodm.addActionListener(convertbtnListener);
-		kmtocm.addActionListener(convertbtnListener);
-		kmtomm.addActionListener(convertbtnListener);
-		
-		kmtoother.setBackground(Color.yellow);
-		GUI.setPadding(kmtoother);
-		centralPanel.add(kmtoother);
-		
-		mtoother = new JPanel(new GridLayout(4,5,3,3));
-		
-		mtokm = this.createmtokmConvertionRow();
-		mtodm = this.createmtodmConvertionRow();
-		mtocm = this.createmtocmConvertionRow();
-		mtomm = this.createmtommConvertionRow();
-		
-		mtokm.addActionListener(convertbtnListener);
-		mtodm.addActionListener(convertbtnListener);
-		mtocm.addActionListener(convertbtnListener);
-		mtomm.addActionListener(convertbtnListener);
-		
-		mtoother.setBackground(Color.cyan);
-		GUI.setPadding(mtoother);
-		centralPanel.add(mtoother);
-		
-		dmtoother = new JPanel(new GridLayout(4,5,3,3));
-		/*
-		//dmtokm = this.createAConvertionRow(dmtoother, "dm", "km", txtInitial, labelInitial, convertbtn, txtResult, labelResult);
-		//dmtom = this.createAConvertionRow(dmtoother, "dm", "m", txtInitial, labelInitial, convertbtn, txtResult, labelResult);
-		//dmtocm = this.createAConvertionRow(dmtoother, "dm", "cm", txtInitial, labelInitial, convertbtn, txtResult, labelResult);
-		//dmtomm = this.createAConvertionRow(dmtoother, "dm", "mm", txtInitial, labelInitial, convertbtn, txtResult, labelResult);
-		
-		dmtokm.addActionListener(convertbtnListener);
-		dmtom.addActionListener(convertbtnListener);
-		dmtocm.addActionListener(convertbtnListener);
-		dmtomm.addActionListener(convertbtnListener);
-		
-		dmtoother.setBackground(Color.pink);
-		GUI.setPadding(dmtoother);
-		centralPanel.add(dmtoother);
-		
-		cmtoother = new JPanel(new GridLayout(4,5,3,3));
-		
-		//cmtokm = this.createAConvertionRow(cmtoother, "cm", "km", txtInitial, labelInitial, convertbtn, txtResult, labelResult);
-		//cmtom = this.createAConvertionRow(cmtoother, "cm", "m", txtInitial, labelInitial, convertbtn, txtResult, labelResult);
-		//cmtodm = this.createAConvertionRow(cmtoother, "cm", "dm", txtInitial, labelInitial, convertbtn, txtResult, labelResult);
-		//cmtomm = this.createAConvertionRow(cmtoother, "cm", "mm", txtInitial, labelInitial, convertbtn, txtResult, labelResult);
-		
-		cmtokm.addActionListener(convertbtnListener);
-		cmtom.addActionListener(convertbtnListener);
-		cmtodm.addActionListener(convertbtnListener);
-		cmtomm.addActionListener(convertbtnListener);
-		
-		cmtoother.setBackground(Color.gray);
-		GUI.setPadding(cmtoother);
-		centralPanel.add(cmtoother);
-		
-		mmtoother = new JPanel(new GridLayout(4,5,3,3));
-		
-		//mmtokm = this.createAConvertionRow(mmtoother, "mm", "km", txtInitial, labelInitial, convertbtn, txtResult, labelResult);
-		//mmtom = this.createAConvertionRow(mmtoother, "mm", "m", txtInitial, labelInitial, convertbtn, txtResult, labelResult);
-		//mmtodm = this.createAConvertionRow(mmtoother, "mm", "dm", txtInitial, labelInitial, convertbtn, txtResult, labelResult);
-		//mmtocm = this.createAConvertionRow(mmtoother, "mm", "cm", txtInitial, labelInitial, convertbtn, txtResult, labelResult);
-		
-		mmtokm.addActionListener(convertbtnListener);
-		mmtom.addActionListener(convertbtnListener);
-		mmtodm.addActionListener(convertbtnListener);
-		mmtocm.addActionListener(convertbtnListener);
-		
-		mmtoother.setBackground(Color.blue);
-		GUI.setPadding(mmtoother);
-		centralPanel.add(mmtoother);
-		*/
-		centralPanel.add(new JPanel());
-		
-		centralPanel.add(new JPanel());
-		centralPanel.add(new JPanel());
-		centralPanel.add(new JPanel());
+		JPanel secondRowOfCards = new JPanel(new GridLayout(1,2));
+		GUI.setPadding(secondRowOfCards);
+		// Change constructors in FUTURE
+		JPanel CardPanel4 = new Card("CentiMeters_To_Meters","CentiMeters_To_KiloMeters","CentiMeters_To_DeciMeters","CentiMeters_To_MilliMeters");
+		JPanel CardPanel5 = new Card("MilliMeters_To_Meters","MilliMeters_To_KiloMeters","MilliMeters_To_CentiMeters","MilliMeters_To_DeciMeters");
+		secondRowOfCards.add(CardPanel4);
+		secondRowOfCards.add(CardPanel5);
+		centralPanel.add(secondRowOfCards);
 			
 		centralPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		
 		mainPanel.add(centralPanel,BorderLayout.CENTER);
 	}
 	
-	public JButton createkmtomConvertionRow()
-	{
-		
-		kmform = new JTextField(5);
-		GUI.setLeftPaddingAtJTextField(kmform);
-		kmform.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		labelInitial = new JLabel("km");
-		labelInitial.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		convertbtn = new JButton();
-		convertbtn.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		ImageIcon convert = new ImageIcon("images/arrow.png");
-	    convertbtn.setIcon(convert);
-		
-		mfromkm = new JTextField(10);
-		GUI.setLeftPaddingAtJTextField(mfromkm);
-		mfromkm.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		labelResult = new JLabel("m");
-		labelResult.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		kmtoother.add(kmform);
-		kmtoother.add(labelInitial);
-		kmtoother.add(convertbtn);
-		kmtoother.add(mfromkm);
-		kmtoother.add(labelResult);
-		
-		return convertbtn;
+	@SuppressWarnings("unused")
+	private ArrayList<String> createAndGetArrayListOfIdentifiersStrings(String string, String string2, String string3,
+			String string4) {
+		// TODO Auto-generated method stub
+		ArrayList<String> ids = null;
+		ids = new ArrayList<String>();
+		ids.add(string);
+		ids.add(string2);
+		ids.add(string3);
+		ids.add(string4);
+		return ids;
 	}
 	
-	public JButton createkmtodmConvertionRow()
-	{
-		
-		kmfordm = new JTextField(5);
-		GUI.setLeftPaddingAtJTextField(kmfordm);
-		kmfordm.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		labelInitial = new JLabel("km");
-		labelInitial.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		convertbtn = new JButton();
-		convertbtn.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		ImageIcon convert = new ImageIcon("images/arrow.png");
-	    convertbtn.setIcon(convert);
-		
-		dmfromkm = new JTextField(10);
-		GUI.setLeftPaddingAtJTextField(dmfromkm);
-		dmfromkm.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		labelResult = new JLabel("dm");
-		labelResult.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		kmtoother.add(kmfordm);
-		kmtoother.add(labelInitial);
-		kmtoother.add(convertbtn);
-		kmtoother.add(dmfromkm);
-		kmtoother.add(labelResult);
-		
-		return convertbtn;
+	private ArrayList<String> createAndGetArrayListOfIdentifiersStrings(String[] arrayIds) {
+		// TODO Auto-generated method stub
+		ArrayList<String> ids = null;
+		ids = new ArrayList<String>();
+		for (int i = 0; i < arrayIds.length; i++) {
+			ids.add(arrayIds[i]);
+		}
+		return ids;
 	}
-	
-	public JButton createkmtocmConvertionRow()
-	{
-		
-		kmforcm = new JTextField(5);
-		GUI.setLeftPaddingAtJTextField(kmforcm);
-		kmforcm.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		labelInitial = new JLabel("km");
-		labelInitial.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		convertbtn = new JButton();
-		convertbtn.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		ImageIcon convert = new ImageIcon("images/arrow.png");
-	    convertbtn.setIcon(convert);
-		
-		cmfromkm = new JTextField(10);
-		GUI.setLeftPaddingAtJTextField(cmfromkm);
-		cmfromkm.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		labelResult = new JLabel("cm");
-		labelResult.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		kmtoother.add(kmforcm);
-		kmtoother.add(labelInitial);
-		kmtoother.add(convertbtn);
-		kmtoother.add(cmfromkm);
-		kmtoother.add(labelResult);
-		
-		return convertbtn;
-	}
-	
-	public JButton createkmtommConvertionRow()
-	{
-		
-		kmformm = new JTextField(5);
-		GUI.setLeftPaddingAtJTextField(kmformm);
-		kmformm.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		labelInitial = new JLabel("km");
-		labelInitial.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		convertbtn = new JButton();
-		convertbtn.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		ImageIcon convert = new ImageIcon("images/arrow.png");
-	    convertbtn.setIcon(convert);
-		
-		mmfromkm = new JTextField(10);
-		GUI.setLeftPaddingAtJTextField(mmfromkm);
-		mmfromkm.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		labelResult = new JLabel("mm");
-		labelResult.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		kmtoother.add(kmformm);
-		kmtoother.add(labelInitial);
-		kmtoother.add(convertbtn);
-		kmtoother.add(mmfromkm);
-		kmtoother.add(labelResult);
-		
-		return convertbtn;
-	}
-	
-	public JButton createmtokmConvertionRow()
-	{
-		
-		mforkm = new JTextField(5);
-		GUI.setLeftPaddingAtJTextField(mforkm);
-		mforkm.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		labelInitial = new JLabel("m");
-		labelInitial.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		convertbtn = new JButton();
-		convertbtn.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		ImageIcon convert = new ImageIcon("images/arrow.png");
-	    convertbtn.setIcon(convert);
-		
-		kmfromm = new JTextField(10);
-		GUI.setLeftPaddingAtJTextField(kmfromm);
-		kmfromm.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		labelResult = new JLabel("km");
-		labelResult.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		mtoother.add(mforkm);
-		mtoother.add(labelInitial);
-		mtoother.add(convertbtn);
-		mtoother.add(kmfromm);
-		mtoother.add(labelResult);
-		
-		return convertbtn;
-	}
-	
-	public JButton createmtodmConvertionRow()
-	{
-		
-		mfordm = new JTextField(5);
-		GUI.setLeftPaddingAtJTextField(mfordm);
-		mfordm.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		labelInitial = new JLabel("m");
-		labelInitial.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		convertbtn = new JButton();
-		convertbtn.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		ImageIcon convert = new ImageIcon("images/arrow.png");
-	    convertbtn.setIcon(convert);
-		
-		dmfromm = new JTextField(10);
-		GUI.setLeftPaddingAtJTextField(dmfromm);
-		dmfromm.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		labelResult = new JLabel("dm");
-		labelResult.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		mtoother.add(mfordm);
-		mtoother.add(labelInitial);
-		mtoother.add(convertbtn);
-		mtoother.add(dmfromm);
-		mtoother.add(labelResult);
-		
-		return convertbtn;
-	}
-	
-	public JButton createmtocmConvertionRow()
-	{
-		
-		mforcm = new JTextField(5);
-		GUI.setLeftPaddingAtJTextField(mforcm);
-		mforcm.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		labelInitial = new JLabel("m");
-		labelInitial.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		convertbtn = new JButton();
-		convertbtn.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		ImageIcon convert = new ImageIcon("images/arrow.png");
-	    convertbtn.setIcon(convert);
-		
-		cmfromm = new JTextField(10);
-		GUI.setLeftPaddingAtJTextField(cmfromm);
-		cmfromm.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		labelResult = new JLabel("cm");
-		labelResult.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		mtoother.add(mforcm);
-		mtoother.add(labelInitial);
-		mtoother.add(convertbtn);
-		mtoother.add(cmfromm);
-		mtoother.add(labelResult);
-		
-		return convertbtn;
-	}
-	
-	public JButton createmtommConvertionRow()
-	{
-		
-		mformm = new JTextField(5);
-		GUI.setLeftPaddingAtJTextField(mformm);
-		mformm.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		labelInitial = new JLabel("m");
-		labelInitial.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		convertbtn = new JButton();
-		convertbtn.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		ImageIcon convert = new ImageIcon("images/arrow.png");
-	    convertbtn.setIcon(convert);
-		
-		mmfromm = new JTextField(10);
-		GUI.setLeftPaddingAtJTextField(mmfromm);
-		mmfromm.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		labelResult = new JLabel("mm");
-		labelResult.setFont(GUI.getFont("sansSerifFontMedium"));
-		
-		mtoother.add(mformm);
-		mtoother.add(labelInitial);
-		mtoother.add(convertbtn);
-		mtoother.add(mmfromm);
-		mtoother.add(labelResult);
-		
-		return convertbtn;
-	}
-	
+
 	public void makeSouthPanel()
 	{
-		southPanel = new JPanel();
-		GUI.setPadding(southPanel);
-		southPanel.setLayout(new BoxLayout(southPanel,BoxLayout.Y_AXIS));
-		southPanel.setAlignmentY(CENTER_ALIGNMENT);
-		southPanel.setAlignmentX(CENTER_ALIGNMENT);
-		
-		footerLabel1 = new JLabel("Designed by Tolis' s group");
-		footerLabel1.setFont(GUI.getFont("sansSerifFontSmall"));
-		footerLabel2 = new JLabel("Copyright 2020");
-		footerLabel2.setFont(GUI.getFont("sansSerifFontSmall"));
-		 
-        southPanel.add(footerLabel1);
-        southPanel.add(footerLabel2);
-		
-        southPanel.setBackground(Color.cyan);
-        
+		southPanel = new Footer();
         mainPanel.add(southPanel,BorderLayout.SOUTH);
-	}
-	
-	class convertbtnListener implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e) {
-
-			if(e.getSource()==kmtom)
-				mfromkm.setText("" + Math_of_conversion.kmtom(Double.parseDouble(kmform.getText())));
-			else if(e.getSource()==kmtodm)
-				dmfromkm.setText("" + Math_of_conversion.kmtodm(Double.parseDouble(kmfordm.getText())));
-			else if(e.getSource()==kmtocm)
-				cmfromkm.setText("" + Math_of_conversion.kmtocm(Double.parseDouble(kmforcm.getText())));
-			else if(e.getSource()==kmtomm)
-				mmfromkm.setText("" + Math_of_conversion.kmtomm(Double.parseDouble(kmformm.getText())));
-			else if(e.getSource()==mtokm)
-				kmfromm.setText("" + Math_of_conversion.mtokm(Double.parseDouble(mforkm.getText())));
-			else if(e.getSource()==mtodm)
-				dmfromm.setText("" + Math_of_conversion.mtodm(Double.parseDouble(mfordm.getText())));
-			else if(e.getSource()==mtocm)
-				cmfromm.setText("" + Math_of_conversion.mtocm(Double.parseDouble(mforcm.getText())));
-			else if(e.getSource()==mtomm)
-				mmfromm.setText("" + Math_of_conversion.mtomm(Double.parseDouble(mformm.getText())));
-			
-		}
 	}
 	
 }

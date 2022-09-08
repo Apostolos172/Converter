@@ -27,7 +27,7 @@ public class Footer extends JPanel {
 		this.setAlignmentY(CENTER_ALIGNMENT);
 		this.setAlignmentX(CENTER_ALIGNMENT);
 		
-		this.footerLabel1 = new JLabel("Designed by Tolis' s group");
+		this.footerLabel1 = new JLabel("Created by Tolis' s group");
 		this.footerLabel1.setFont(GUI.getFont("sansSerifFontSmall"));
 		this.footerLabel2 = new JLabel("Copyright 2020-2022");
 		this.footerLabel2.setFont(GUI.getFont("sansSerifFontSmall"));

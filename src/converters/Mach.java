@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import components.Footer;
+import components.Header;
 import main.*;
 
 public class Mach extends JFrame{
@@ -51,16 +53,7 @@ public class Mach extends JFrame{
 	
 	public void makeNorthPanel()
 	{
-		northPanel = new JPanel();
-		northPanel.setBackground(Color.yellow);
-		GUI.setPadding(northPanel);
-		
-		headerLabel = new JLabel("Μετατροπή ταχύτητας από Μαχ σε km/ώρα και αντίστροφα");
-		headerLabel.setFont(GUI.getFont("serifFontBig"));
-		GUI.setPaddingAtJLabel(headerLabel);
-		
-		northPanel.add(headerLabel);
-		
+		northPanel = new Header("Μετατροπή ταχύτητας από Μαχ σε km/ώρα και αντίστροφα", "text");
 		mainPanel.add(northPanel,BorderLayout.NORTH);
 	}
 	
@@ -158,22 +151,7 @@ public class Mach extends JFrame{
 	
 	public void makeSouthPanel()
 	{
-		southPanel = new JPanel();
-		GUI.setPadding(southPanel);
-		southPanel.setLayout(new BoxLayout(southPanel,BoxLayout.Y_AXIS));
-		southPanel.setAlignmentY(CENTER_ALIGNMENT);
-		southPanel.setAlignmentX(CENTER_ALIGNMENT);
-		
-		footerLabel1 = new JLabel("Designed by Tolis' s group");
-		footerLabel1.setFont(GUI.getFont("sansSerifFontSmall"));
-		footerLabel2 = new JLabel("Copyright 2020");
-		footerLabel2.setFont(GUI.getFont("sansSerifFontSmall"));
-		 
-        southPanel.add(footerLabel1);
-        southPanel.add(footerLabel2);
-		
-        southPanel.setBackground(Color.cyan);
-        
+		southPanel = new Footer();
         mainPanel.add(southPanel,BorderLayout.SOUTH);
 	}
 	
