@@ -20,6 +20,7 @@ import unitsOfMeasurement.MilliMeter;
 import unitsOfMeasurement.Tonne;
 
 import checking.Mass;
+import checking.Surface;
 
 public class ConvertbtnListener implements ActionListener {
 	private String convertionSign;
@@ -209,6 +210,8 @@ public class ConvertbtnListener implements ActionListener {
 			
 		} else if (checkForLength(measurementToConvert)) {
 			
+		} else if (checkForSurface(measurementToConvert)) {
+			
 		} else {
 			this.toFieldText = this.fromField.getText();
 		}
@@ -218,6 +221,11 @@ public class ConvertbtnListener implements ActionListener {
 		else
 			this.toField.setText(this.toFieldText);
 		
+	}
+
+	private boolean checkForSurface(double measurementToConvert) {
+		// TODO Auto-generated method stub
+		return new Surface().isIt(convertionSign, measurementToConvert, toFieldTextObject);
 	}
 
 	private boolean checkForLength(double measurementToConvert) {
