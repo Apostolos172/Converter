@@ -23,10 +23,20 @@ public class Row extends JPanel {
 	private JLabel fromMeasurement,toMeasurement;
 	private JTextField fromField, toField;
 	private JButton btn;
+	
+	public Row(String convertionSign) {		
+		makeRow(convertionSign, true);
+		
+	}
 
-	public Row(String convertionSign) {
-		// TODO Auto-generated constructor stub		
-		customizeRow();
+	public Row(String convertionSign, boolean padding) {
+		makeRow(convertionSign, padding);
+
+	}
+	
+	private void makeRow(String convertionSign, boolean padding) {
+		// TODO Auto-generated method stub
+		customizeRow(padding);
 		
 		this.fromMeasurement = new JLabel();
 		this.toMeasurement = new JLabel();
@@ -36,7 +46,7 @@ public class Row extends JPanel {
 		}
 		// testing(convertionSign);
 
-		this.fromField = new JTextField(10);
+		this.fromField = new JTextField(5);
 		//this.fromField.setMinimumSize(new Dimension(50, 250));
 		this.toField = new JTextField(10);
 		this.fromField.addFocusListener(new FocusFieldListener(this.toField));
@@ -79,11 +89,14 @@ public class Row extends JPanel {
 		// System.out.println(convertionSign.split("_To_")[0]);
 		return (convertionSign.split("_To_"))[0];
 	}
-
-	private void customizeRow() {
+	
+	private void customizeRow(Boolean padding) {
 		// TODO Auto-generated method stub
 		this.setBackground(Color.LIGHT_GRAY);
-		GUI.setTopPadding(this);
+		if(!padding) {}
+		else {
+			GUI.setTopPadding(this);
+		}
 	}
 
 	public Row(LayoutManager layout) {

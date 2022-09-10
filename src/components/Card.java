@@ -49,6 +49,19 @@ public class Card extends JPanel {
 		// add in FUTURE them into an array and add eventListeners as members of the array
 
 	}
+	
+	public Card(ArrayList<String> identifiers, boolean padding) {
+		customizeCard();
+		// convertionSign == string
+		ArrayList<Row> rows = new ArrayList<Row>();
+		for (String identifier : identifiers) { 		      
+			rows.add(new Row(identifier, padding));
+	    }
+		for (Row row : rows) { 		      
+			this.add(row);
+	    }
+
+	}
 
 	private void createRows(String string, String string2, String string3) {
 		// TODO Auto-generated method stub
