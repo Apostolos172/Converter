@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import converters.Length;
 import converters.Mach;
 import converters.Mass;
+import converters.Surface;
 import converters.Volume;
 
 public class ScreenCreationbtnListener implements ActionListener {
@@ -31,6 +32,9 @@ public class ScreenCreationbtnListener implements ActionListener {
 		    break;
 		  case "Length":
 			  new Length();
+		    break;
+		  case "Area":
+			  new Surface();
 		    break;
 		  default:
 		    // code block
