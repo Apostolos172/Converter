@@ -1,6 +1,6 @@
 import main.Main_GUI;
 
-public class Main {
+public class App {
 	
 	// Calculator App
 	// UTF-8 encoding

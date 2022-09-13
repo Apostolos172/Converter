@@ -215,6 +215,9 @@ public class ConvertbtnListener implements ActionListener {
 		} else {
 			this.toFieldText = this.fromField.getText();
 		}
+		
+		// mass only works now, check string builder in future for exporting in jar
+		
 		//if(this.toFieldTextObject!=null)
 		if(this.toFieldTextObject.toString()!="")
 			this.toField.setText(this.toFieldTextObject.toString());
