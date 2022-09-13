@@ -7,6 +7,7 @@ import converters.Length;
 import converters.Mach;
 import converters.Mass;
 import converters.Volume;
+import helperWindows.PopUpFunctionalityIsMissing;
 
 public class ScreenCreationbtnListener implements ActionListener {
 	private String screen;
@@ -31,6 +32,28 @@ public class ScreenCreationbtnListener implements ActionListener {
 		    break;
 		  case "Length":
 			  new Length();
+		    break;
+		  case "Area":
+			  new PopUpFunctionalityIsMissing();
+			  // new Area();
+		    break;
+		  case "Speed":
+			  new PopUpFunctionalityIsMissing();
+		    break;
+		  case "Screw":
+			  new PopUpFunctionalityIsMissing();
+		    break;
+		  case "Field":
+			  new PopUpFunctionalityIsMissing();
+		    break;
+		  case "Byte":
+			  new PopUpFunctionalityIsMissing();
+		    break;
+		  case "Car":
+			  new PopUpFunctionalityIsMissing();
+		    break;
+		  case "Ok":
+			  new PopUpFunctionalityIsMissing();
 		    break;
 		  default:
 		    // code block
