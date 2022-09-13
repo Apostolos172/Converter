@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import converters.Length;
 import converters.Mach;
 import converters.Mass;
+import converters.Surface;
 import converters.Volume;
 import helperWindows.PopUpFunctionalityIsMissing;
 
@@ -34,8 +35,7 @@ public class ScreenCreationbtnListener implements ActionListener {
 			  new Length();
 		    break;
 		  case "Area":
-			  new PopUpFunctionalityIsMissing();
-			  // new Area();
+			  new Surface();
 		    break;
 		  case "Speed":
 			  new PopUpFunctionalityIsMissing();

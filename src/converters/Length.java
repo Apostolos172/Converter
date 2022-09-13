@@ -10,6 +10,7 @@ import components.Card;
 import components.Footer;
 import components.Header;
 import main.*;
+import util.Useful;
 
 public class Length extends JFrame{
 	
@@ -119,11 +120,11 @@ public class Length extends JFrame{
 		JPanel firstRowOfCards = new JPanel(new GridLayout(1,3));
 		GUI.setPadding(firstRowOfCards);		
 		String[] ids1 = {"Meters_To_kiloMeters", "Meters_To_DeciMeters", "Meters_To_CentiMeters", "Meters_To_MilliMeters"};
-		JPanel CardPanel1 = new Card(createAndGetArrayListOfIdentifiersStrings(ids1));
+		JPanel CardPanel1 = new Card(Useful.createAndGetArrayListOfIdentifiersStrings(ids1));
 		String[] ids2 = {"KiloMeters_To_Meters", "KiloMeters_To_DeciMeters", "KiloMeters_To_CentiMeters", "KiloMeters_To_MilliMeters"};
-		JPanel CardPanel2 = new Card(this.createAndGetArrayListOfIdentifiersStrings(ids2));
+		JPanel CardPanel2 = new Card(Useful.createAndGetArrayListOfIdentifiersStrings(ids2));
 		String[] ids3 = {"DeciMeters_To_Meters", "DeciMeters_To_KiloMeters", "DeciMeters_To_CentiMeters", "DeciMeters_To_MilliMeters"};
-		JPanel CardPanel3 = new Card(this.createAndGetArrayListOfIdentifiersStrings(ids3));
+		JPanel CardPanel3 = new Card(Useful.createAndGetArrayListOfIdentifiersStrings(ids3));
 		firstRowOfCards.add(CardPanel1);
 		firstRowOfCards.add(CardPanel2);
 		firstRowOfCards.add(CardPanel3);
@@ -153,16 +154,6 @@ public class Length extends JFrame{
 		ids.add(string2);
 		ids.add(string3);
 		ids.add(string4);
-		return ids;
-	}
-	
-	private ArrayList<String> createAndGetArrayListOfIdentifiersStrings(String[] arrayIds) {
-		// TODO Auto-generated method stub
-		ArrayList<String> ids = null;
-		ids = new ArrayList<String>();
-		for (int i = 0; i < arrayIds.length; i++) {
-			ids.add(arrayIds[i]);
-		}
 		return ids;
 	}
 
