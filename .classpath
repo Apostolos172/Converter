@@ -6,5 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/apost/eclipse-workspace/test/libraries/flatlaf-2.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
