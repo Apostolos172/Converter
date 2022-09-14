@@ -1,4 +1,4 @@
-# Calculator
+# Converter
 A calculator for converting different units of measurement
 
 After you click on a button of the main screen, another screen for the specific unit of measurement will be shown.
