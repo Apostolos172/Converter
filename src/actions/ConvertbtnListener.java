@@ -219,10 +219,22 @@ public class ConvertbtnListener implements ActionListener {
 		// mass only works now, check string builder in future for exporting in jar
 		
 		//if(this.toFieldTextObject!=null)
-		if(this.toFieldTextObject.toString()!="")
+		if(!(this.toFieldTextObject.toString().equals(""))) {
 			this.toField.setText(this.toFieldTextObject.toString());
+			// this.toFieldTextObject.delete(0, toFieldTextObject.length());
+			//System.out.println("if(this.toFieldTextObject.toString()!=\"\")");
+		}
 		else
+		/*
+		 * In Java, using == or != to compare two strings for equality actually compares two objects 
+		 * for equality rather than their string values for equality. 
+		 * Chances are good that the two references will never be equal.
+		 */
+		//if(this.toField.getText()!="")
+		{
 			this.toField.setText(this.toFieldText);
+			//System.out.println("else");
+		}
 		
 	}
 
