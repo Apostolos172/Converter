@@ -19,14 +19,14 @@ After you click on a button of the main screen, another screen for the specific 
 
 ![missing window](https://github.com/Apostolos172/converter/blob/master/screenshots/missing.png?raw=true)
 
-##Installing
-###Build Instructions
+## Installing
+### Build Instructions
 
 1. Download the project.
 2. Import it into Eclipse.
 3. Build & Run.
 
-###Pre-Built Instructions
+### Pre-Built Instructions
 
 1. Download the latest version archive (.zip) from the releases tab.
 2. Extract the folder from the zip.
