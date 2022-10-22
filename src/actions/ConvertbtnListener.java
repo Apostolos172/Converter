@@ -5,22 +5,17 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 
+import checking.Mass;
+import checking.Surface;
 import unitsOfMeasurement.CentiMeter;
 import unitsOfMeasurement.CubicCentiMeter;
 import unitsOfMeasurement.CubicDeciMeter;
 import unitsOfMeasurement.CubicMeter;
 import unitsOfMeasurement.CubicMilliMeter;
 import unitsOfMeasurement.DeciMeter;
-import unitsOfMeasurement.Gram;
-import unitsOfMeasurement.Kilo;
 import unitsOfMeasurement.KiloMeter;
 import unitsOfMeasurement.Meter;
-import unitsOfMeasurement.Mg;
 import unitsOfMeasurement.MilliMeter;
-import unitsOfMeasurement.Tonne;
-
-import checking.Mass;
-import checking.Surface;
 
 public class ConvertbtnListener implements ActionListener {
 	private String convertionSign;
@@ -38,7 +33,6 @@ public class ConvertbtnListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		calculateAndDisplayResult();
 		
 		
@@ -196,7 +190,6 @@ public class ConvertbtnListener implements ActionListener {
 	}
 
 	public void calculateAndDisplayResult() {
-		// TODO Auto-generated method stub
 		double measurementToConvert = 0;
 		try {
 			measurementToConvert = Double.parseDouble(this.fromField.getText());
@@ -215,9 +208,7 @@ public class ConvertbtnListener implements ActionListener {
 		} else {
 			this.toFieldText = this.fromField.getText();
 		}
-		
-		// mass only works now, check string builder in future for exporting in jar
-		
+				
 		//if(this.toFieldTextObject!=null)
 		if(!(this.toFieldTextObject.toString().equals(""))) {
 			this.toField.setText(this.toFieldTextObject.toString());
@@ -225,11 +216,6 @@ public class ConvertbtnListener implements ActionListener {
 			//System.out.println("if(this.toFieldTextObject.toString()!=\"\")");
 		}
 		else
-		/*
-		 * In Java, using == or != to compare two strings for equality actually compares two objects 
-		 * for equality rather than their string values for equality. 
-		 * Chances are good that the two references will never be equal.
-		 */
 		//if(this.toField.getText()!="")
 		{
 			this.toField.setText(this.toFieldText);
@@ -239,12 +225,10 @@ public class ConvertbtnListener implements ActionListener {
 	}
 
 	private boolean checkForSurface(double measurementToConvert) {
-		// TODO Auto-generated method stub
 		return new Surface().isIt(convertionSign, measurementToConvert, toFieldTextObject);
 	}
 
 	private boolean checkForLength(double measurementToConvert) {
-		// TODO Auto-generated method stub
 		// length screen
 		switch(this.convertionSign) {
 			case "Meters_To_kiloMeters":
@@ -317,7 +301,6 @@ public class ConvertbtnListener implements ActionListener {
 	}
 
 	private boolean checkForVolume(double measurementToConvert) {
-		// TODO Auto-generated method stub
 		// volume screen
 		switch(this.convertionSign) {
 			case "cubicMeters_To_cubicDeciMeters":
@@ -362,7 +345,6 @@ public class ConvertbtnListener implements ActionListener {
 	}
 
 	private boolean checkForMass(double measurementToConvert) {
-		// TODO Auto-generated method stub
 		/*
 		 * returns true if it is here so in the main method do break with if
 		 * to separate logic of big switch above
