@@ -4,7 +4,7 @@ public class Math_of_conversion {
 
 	public static double machTokmPerHour(double mach)
 	{
-		// Μαχ 1 είναι η ταχύτητα με αριθμητική τιμή 1.225 χλμ/ώρα
+		// ΞΞ±Ο‡ 1 ΞµΞ―Ξ½Ξ±ΞΉ Ξ· Ο„Ξ±Ο‡ΟΟ„Ξ·Ο„Ξ± ΞΌΞµ Ξ±ΟΞΉΞΈΞΌΞ·Ο„ΞΉΞΊΞ® Ο„ΞΉΞΌΞ® 1.225 Ο‡Ξ»ΞΌ/ΟΟΞ±
 		
 		double kmPerHour;
 		kmPerHour = mach*1225.0;
@@ -14,7 +14,7 @@ public class Math_of_conversion {
 	
 	public static double kmPerHourToMach(double kmPerHour)
 	{
-		// Μαχ 1 είναι η ταχύτητα με αριθμητική τιμή 1.225 χλμ/ώρα
+		// ΞΞ±Ο‡ 1 ΞµΞ―Ξ½Ξ±ΞΉ Ξ· Ο„Ξ±Ο‡ΟΟ„Ξ·Ο„Ξ± ΞΌΞµ Ξ±ΟΞΉΞΈΞΌΞ·Ο„ΞΉΞΊΞ® Ο„ΞΉΞΌΞ® 1.225 Ο‡Ξ»ΞΌ/ΟΟΞ±
 		
 		double mach;
 		mach = kmPerHour/1225.0;
